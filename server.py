@@ -7,7 +7,22 @@ app = Flask(__name__)
 def static_content(content):
     return render_template(content)
 
+@app.route('/multiplo/<numero>/<numero2>')
+def multiplo(numero,numero2):
+    contador = int(numero)%int(numero2)
+    if( contador == 0):
+        return ("esmultiplo")
+    else:
+        return ("noesmultiplo")
 
+
+
+@app.route('/palindromo/<palabra>')
+def palindromo(palabra):
+    if(str(palabra)==str(palabra[::-1])):
+        return "es palindrome"
+    else:
+        return "noespalidnrome"
 
 
 if __name__ == '__main__':
